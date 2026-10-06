@@ -78,6 +78,13 @@
         "effect": "^4.0.1",
       },
     },
+    "packages/create-pokecenter": {
+      "name": "@skusez/create-pokecenter",
+      "version": "0.1.0",
+      "bin": {
+        "create-pokecenter": "./index.mjs",
+      },
+    },
   },
   "catalog": {
     "@effect/atom-react": "4.0.1",
@@ -343,6 +350,8 @@
     "@rolldown/binding-win32-x64-msvc": ["@rolldown/binding-win32-x64-msvc@1.2.5", "", { "os": "win32", "cpu": "x64" }, "sha512-e/SXpgISz+IoqVcSSI0rx/d/he8zqLex+/rCWpnHpmVfmPIUjag9H6P7zotf0gJHwPUhQxZ/mF8tr6acebT9yw=="],
 
     "@rolldown/pluginutils": ["@rolldown/pluginutils@1.0.1", "", {}, "sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw=="],
+
+    "@skusez/create-pokecenter": ["@skusez/create-pokecenter@workspace:packages/create-pokecenter"],
 
     "@skusez/pokecenter": ["@skusez/pokecenter@workspace:packages/core"],
 
