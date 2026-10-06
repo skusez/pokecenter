@@ -1,0 +1,57 @@
+{
+  "name": "@skusez/pokecenter-cloudflare",
+  "version": "0.1.0",
+  "description": "pokecenter on Cloudflare: the worker that receives mail, triages it, notifies on Telegram and serves the thread UI.",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skusez/pokecenter.git",
+    "directory": "packages/cloudflare"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "bun": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "bun": "./src/*.ts",
+      "default": "./dist/*.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "migrations"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "build:ui": "vite build --config ui/vite.config.ts",
+    "dev:ui": "vite --config ui/vite.config.ts",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "@skusez/pokecenter": "workspace:*"
+  },
+  "peerDependencies": {
+    "alchemy": "2.0.0-beta.81",
+    "effect": "^4.0.1"
+  },
+  "devDependencies": {
+    "@effect/atom-react": "catalog:",
+    "@tailwindcss/vite": "^4.1.0",
+    "@types/react": "~19.2.0",
+    "@types/react-dom": "~19.2.0",
+    "@vitejs/plugin-react": "^6.0.0",
+    "alchemy": "catalog:",
+    "effect": "catalog:",
+    "react": "~19.2.0",
+    "react-dom": "~19.2.0",
+    "tailwindcss": "^4.1.0",
+    "vite": "^8.0.0",
+    "@effect/sql-sqlite-bun": "catalog:",
+    "@types/bun": "catalog:"
+  }
+}

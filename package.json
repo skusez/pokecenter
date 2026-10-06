@@ -1,0 +1,26 @@
+{
+  "name": "pokecenter-monorepo",
+  "private": true,
+  "type": "module",
+  "workspaces": {
+    "packages": ["packages/*", "examples/*"],
+    "catalog": {
+      "effect": "4.0.1",
+      "@effect/platform-bun": "4.0.1",
+      "@effect/platform-node": "4.0.1",
+      "@effect/atom-react": "4.0.1",
+      "@effect/sql-sqlite-bun": "4.0.1",
+      "alchemy": "2.0.0-beta.81",
+      "typescript": "~5.9.2",
+      "@types/bun": "latest"
+    }
+  },
+  "scripts": {
+    "check": "tsc -b",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "catalog:",
+    "typescript": "catalog:"
+  }
+}

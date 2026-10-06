@@ -1,0 +1,11 @@
+{
+  "name": "@skusez/create-pokecenter",
+  "version": "0.1.0",
+  "description": "Start a pokecenter inbox: `npm create @skusez/pokecenter`.",
+  "license": "MIT",
+  "type": "module",
+  "repository": { "type": "git", "url": "git+https://github.com/skusez/pokecenter.git", "directory": "packages/create-pokecenter" },
+  "bin": { "create-pokecenter": "./index.mjs" },
+  "files": ["index.mjs", "template"],
+  "scripts": { "prepack": "node scripts/sync-template.mjs" }
+}

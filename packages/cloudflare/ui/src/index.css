@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light dark;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #fafafa;
+  color: #111;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #131315;
+    color: #e8e8ea;
+  }
+}
+
+/* Thin, unobtrusive scrollbars in the two panes. */
+.pane::-webkit-scrollbar { width: 8px; }
+.pane::-webkit-scrollbar-thumb { background: rgba(127,127,127,.35); border-radius: 4px; }

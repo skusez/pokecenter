@@ -1,0 +1,18 @@
+{
+  "name": "@skusez/pokecenter-agent",
+  "version": "0.1.0",
+  "description": "The local half of pokecenter: polls the worker, writes digests, and investigates queued reports with opencode in a git worktree, opening a draft PR.",
+  "license": "MIT",
+  "type": "module",
+  "repository": { "type": "git", "url": "git+https://github.com/skusez/pokecenter.git", "directory": "packages/agent" },
+  "bin": { "pokecenter": "./src/bin.ts" },
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "bun": "./src/index.ts", "default": "./dist/index.js" },
+    "./*": { "types": "./dist/*.d.ts", "bun": "./src/*.ts", "default": "./dist/*.js" }
+  },
+  "files": ["dist", "src", "opencode.json"],
+  "scripts": { "build": "tsc -b", "check:test": "tsc -p test", "test": "bun test" },
+  "dependencies": { "@skusez/pokecenter": "workspace:*" },
+  "peerDependencies": { "effect": "^4.0.1", "@effect/platform-bun": "^4.0.1" },
+  "devDependencies": { "effect": "catalog:", "@effect/platform-bun": "catalog:", "@types/bun": "catalog:" }
+}
