@@ -188,7 +188,7 @@ export const thisMachine = Effect.gen(function*() {
     bin: fileURLToPath(new URL("./bin.ts", import.meta.url)),
     profilePath: path.resolve(profilePath),
     cwd: process.cwd(),
-    path: [...new Set((process.env.PATH ?? "/usr/local/bin:/usr/bin:/bin").split(":").filter(Boolean))].join(":"),
+    path: jobPath(process.env.PATH),
     home: process.env.HOME ?? homedir(),
     stateDir: config.stateDir
   } satisfies Machine
@@ -219,3 +219,12 @@ export const install = Effect.fn("install")(function*(options: { readonly dryRun
   yield* Console.log(`\n${options.dryRun ? "Nothing written (--dry-run). " : ""}To start the jobs, run:`)
   for (const command of plan.load) yield* Console.log(`  ${command}`)
 })
+
+/**
+ * This shell's PATH, minus what only made sense in it: a package runner's
+ * temporary directory (bunx, npx) and project node_modules/.bin entries.
+ */
+export const jobPath = (path: string | undefined): string =>
+  [...new Set((path ?? "/usr/local/bin:/usr/bin:/bin").split(":"))]
+    .filter((entry) => entry && !/\/bunx-|\/_npx\/|\/node_modules\/\.bin$/.test(entry))
+    .join(":")

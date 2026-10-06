@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test"
-import { jobsFor, type Machine, planFor, renderPlist, renderService, renderTimer, slugOf } from "../src/Install.ts"
+import { jobPath, jobsFor, type Machine, planFor, renderPlist, renderService, renderTimer, slugOf } from "../src/Install.ts"
 
 const machine: Machine = {
   slug: "example-co",
@@ -96,4 +96,10 @@ describe("systemd", () => {
 
 test("other platforms have no plan", () => {
   expect(planFor("win32", machine)).toBeNull()
+})
+
+test("the job PATH drops temporary and project-local entries", () => {
+  expect(
+    jobPath("/var/folders/x/T/bunx-501-pokecenter@latest/node_modules/.bin:/repo/node_modules/.bin:/opt/homebrew/bin:/usr/bin:/usr/bin")
+  ).toBe("/opt/homebrew/bin:/usr/bin")
 })
